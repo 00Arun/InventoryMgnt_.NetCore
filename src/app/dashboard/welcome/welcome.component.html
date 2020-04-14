@@ -1,0 +1,35 @@
+
+<app-navigation></app-navigation>
+<div class="welcome-cont">
+    <div class="card mt-4" *ngIf="currentUser.roleName=='Admin'">
+        <mat-card>
+            <mat-card-title> Welcome </mat-card-title>
+            <mat-card-content>
+                <p>Hi, {{currentUser.firstName}}</p>
+                <p>Your role is: <strong>{{currentUser.roleName}}</strong>.</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="card mt-4" *ngIf="currentUser.roleName=='librarian'">
+        <mat-card>
+            <mat-card-title>
+                Welcome
+            </mat-card-title>
+            <mat-card-content>
+                <p>Welcome {{currentUser.firstName}}</p>
+                <p>Your role is: <strong>{{currentUser.roleName}}</strong>.</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="card mt-4" *ngIf="currentUser.roleName=='Student'">
+        <mat-card>
+            <mat-card-title>
+                Welcome
+            </mat-card-title>
+            <mat-card-content>
+                <p>Welcome {{currentUser.firstName}}</p>
+                <p>Your role is: <strong>{{currentUser.roleName}}</strong>.</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

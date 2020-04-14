@@ -1,0 +1,74 @@
+<app-navigation></app-navigation>
+<div class="page-wrapper is__sticky-footer">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">{{containerTitle}} Book</h1>
+            <span class="page-subtitle">All fields with * are mandatory</span>
+        </div>
+        <!-- //.page-header -->
+        <div class="page-content">
+            <form [formGroup]="formData" class="form-stacked">
+                <div fxLayout="column" fxLayoutGap="15px" fxLayout.gt-md="row" fxLayoutGap.gt-md="30px">
+                    <div fxFlex="50">
+                        <div class="card">
+                            <div class="card-body">
+                                <mat-form-field>
+                                    <input matInput name="BookName" formControlName="BookName" placeholder="Book Name *">
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                    <input matInput name="BookPublication" formControlName="BookPublication"
+                                        placeholder="Book Publication *">
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                    <input matInput name="BookPrice" formControlName="BookPrice"
+                                        placeholder="Book Price *">
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                    <input matInput name="Stock" formControlName="Stock" placeholder="Stock *">
+                                </mat-form-field>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div fxFlex="50">
+                        <div class="card">
+                            <div class="card-body">
+                                <mat-form-field>
+                                    <input matInput name="BookAuthor" formControlName="BookAuthor"
+                                        placeholder="BookAuthor *">
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                    <input matInput name="BookType" formControlName="BookType" placeholder="BookType *">
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                    <mat-label>Book description</mat-label>
+                                    <textarea matInput name="BookDescription" formControlName="BookDescription"
+                                        placeholder="Book Description *"></textarea>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-wrapper sticky-bottom">
+                    <mat-card-actions>
+                        <button mat-stroked-button color="default" (click)="closeModal()">Cancel</button>
+                        <button mat-stroked-button color="default" (click)="addOrUpdateBook('Draft')">Save
+                            Draft</button>
+                        <button type="submit" mat-flat-button color="primary" (click)="addOrUpdateBook('Publish')">
+                            {{submitButtonValue}}
+                        </button>
+                    </mat-card-actions>
+                </div>
+            </form>
+        </div>
+        <!-- //.page-content -->
+    </div>
+    <!-- //.container -->
+</div>
+<!-- //.page-wrapper -->

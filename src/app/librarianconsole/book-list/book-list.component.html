@@ -1,0 +1,105 @@
+<app-navigation></app-navigation>
+<div class="page-wrapper">
+  <div class="container-fluid">
+    <div class="page-header" fxLayout="row" fxLayoutAlign="space-between center">
+      <h1 class="page-title">
+        Books <span class="counter">
+          / {{ LibbooksListViewModel.totalData }} {{resultText}}
+        </span>
+      </h1>
+      <div class="" fxLayoutAlign="flex-end">
+        <button mat-stroked-button routerLink="/librarianconsole/entrybooks">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+    <!-- //.page-header -->
+    <div class="page-filter" fxLayout="row" fxLayoutAlign="space-between center">
+      <div class="search" fxLayout="row" fxFlex="auto">
+        <form #form="ngForm">
+          <mat-form-field floatLabel="never">
+            <input matInput #Search placeholder="Search" (keydown.enter)="$event.preventDefault()"
+              (keyup)="onKeySearch($event)" [(value)]="configPagination.searchText">
+            <span matPrefix>
+              <mat-icon>search</mat-icon>&nbsp;
+            </span>
+
+            <button *ngIf=searchText mat-button matSuffix mat-icon-button aria-label="Reset" (click)="resetSearch()">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </form>
+      </div>
+      <div fxLayout="row" fxLayoutGap="15px">
+      </div>
+    </div>
+    <!-- //.page-filter -->
+    <div class="section section-promotion list-layout" fxLayout="column" fxLayoutGap="15px">
+      <div fxLayout="column" *ngFor="let bookViewModel of LibbooksListViewModel.dataArray  | paginate:configPagination">
+        <div class="card" fxLayout="row">
+          <div class="card-body" fxLayout="row" fxFlex="100" fxLayoutGap="30px">
+            <div fxFlex="25">
+              <label>Book Name</label>
+              <h5 class="card-title">{{ bookViewModel.bookName }}</h5>
+
+            </div>
+            <div fxFlex="25">
+              <label>Book Auther</label>
+              <h5 class="card-title">{{ bookViewModel.bookAuthor }}</h5>
+
+            </div>
+            <div fxFlex="25">
+              <label>Book Publication</label>
+              <h5 class="card-title">{{ bookViewModel.bookPublication }}</h5>
+            </div>
+            <div fxFlex="25">
+              <label>Book Price</label>
+              <h5 class="card-title">{{ bookViewModel.bookPrice }}</h5>
+            </div>
+
+            <div fxFlex="25">
+              <label>Remaining stock </label>
+              <h5 class="card-title">{{ bookViewModel.remaningStock }}</h5>
+            </div>
+            <div fxFlex="25" class="text-center">
+              <div class="added">
+                Added on <p format="mediumDate" l10nDate>{{bookViewModel.addedOn  | date: 'dd/MM/yyyy hh:mm a'}}</p>
+              </div>
+            </div>
+            <div class="action">
+              <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="getBookById(bookViewModel.id)">                 
+                  <span>Edit</span>
+                </button>
+                <button mat-menu-item (click)="deletebookById(bookViewModel.id)">                
+                  <span>Delete</span>
+                </button>
+                <button mat-menu-item (click)="returnBook(bookViewModel.id)">                
+                  <span>Update Stock</span>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--//.section-promotion -->
+
+    <div *ngIf="LibbooksListViewModel.totalData == 0" class="no-record">
+      <p>No Record Found</p>
+    </div>
+
+    <!-- //.no-record -->
+    <div
+        *ngIf="LibbooksListViewModel.totalData > 0 && LibbooksListViewModel.totalData > configPagination.itemsPerPage">
+        <pagination-controls id="libBookPagination" class="pagination" (pageChange)="onPaginateChange($event)">
+        </pagination-controls>
+      </div>
+    <!-- //.pagination -->
+  </div>
+  <!-- //.container-fluid -->
+</div>
+<!-- //.page-wrapper -->

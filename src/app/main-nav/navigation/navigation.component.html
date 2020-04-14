@@ -1,0 +1,49 @@
+<mat-toolbar color="primary">
+    <button mat-button>
+        <a mat-button class="btnWel" href="{{routLink}}">Welcome {{currentUser.firstName}}</a>
+    </button>
+    <div class="menuItem" *ngIf="this.currentUser.roleName=='Admin'">
+        <a mat-button href="/adminconsole/list"><span class="btnWel">Book Request</span></a>
+    </div>
+    <div class="menuItem" *ngIf="this.currentUser.roleName=='librarian'">
+        <a mat-button href="/librarianconsole/list"><span class="btnWel">Books</span></a>
+        <a mat-button href="/librarianconsole/history"><span class="btnWel">History</span></a>
+    </div>
+    <div class="menuItem" *ngIf="this.currentUser.roleName=='Student'">
+        <a mat-button href="/studentconsole/list"><span class="btnWel">Books</span></a>
+    </div>
+    <span class="toolbar-fill-remaining-space"></span>
+    <button mat-button (click)="Profile()">
+        {{currentUser.firstName}} &nbsp;
+        <img src="https://s3.ap-southeast-1.amazonaws.com/images.dev.perkal.com/AdminProfile/extrasmall/adminuserprofileimage_2.jpeg"
+            class="p-img rounded-circle" width="32" height="32">
+    </button>
+    <button mat-icon-button [mat-menu-trigger-for]="menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+</mat-toolbar>
+
+
+<mat-menu class="user-profile-card" x-position="before" #menu="matMenu">
+    <div class="p-3" fxFlex="row" fxLayoutAlign="flex-start center">
+        <div fxFlex="60px">
+            <img src="https://s3.ap-southeast-1.amazonaws.com/images.dev.perkal.com/AdminProfile/extrasmall/adminuserprofileimage_2.jpeg"
+                class="profile-img rounded-circle" width="60" height="60">
+        </div>
+        <div class="ml-3" fxFlex="auto">
+            <h5 class="mb-0">{{currentUser.firstName}}</h5>
+            <small class="text-muted">{{currentUser.email}}</small>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="Profile()">
+        <mat-icon>perm_identity</mat-icon> My Profile
+    </button>
+    <button mat-menu-item (click)="changePassword()">
+        <mat-icon>perm_identity</mat-icon> Change Password
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="logout()">
+        <mat-icon>power_settings_new</mat-icon> Logout
+    </button>
+</mat-menu>

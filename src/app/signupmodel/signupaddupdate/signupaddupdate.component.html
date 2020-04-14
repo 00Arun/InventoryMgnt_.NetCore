@@ -1,0 +1,67 @@
+<h2 mat-dialog-title>{{containerTitle}}</h2>
+<span class="page-subtitle">All fields with * are mandatory</span>
+<mat-dialog-content>
+  <form [formGroup]="formData" class="form-stacked">
+    <div fxLayout="column" fxLayoutGap="15px" fxLayout.gt-md="row" fxLayoutGap.gt-md="30px">
+        <div fxFlex="50">
+            <div class="card">
+                <div class="card-body">
+                    <mat-form-field>
+                        <input matInput name="FirstName" formControlName="FirstName"
+                            placeholder="First Name *">
+                    </mat-form-field>
+                  
+                    <mat-form-field>
+                        <input matInput name="LastName" formControlName="LastName"
+                            placeholder="Last Name *">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput name="Email" formControlName="Email" placeholder="Email *">
+                    </mat-form-field>
+                   
+                  
+                    <mat-form-field>
+                        <input matInput name="City" formControlName="City" placeholder="City *">
+                    </mat-form-field>
+                  
+                </div>
+            </div>
+        </div>
+        <div fxFlex="50">
+            <div class="card">
+                <div class="card-body">
+                    
+                    <mat-form-field>
+                        <input matInput name="Country" formControlName="Country" placeholder="Country *">
+                    </mat-form-field>
+
+
+                    <mat-form-field>
+                        <input matInput name="Suburb" formControlName="Suburb" placeholder="Suburb *">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput name="MobileNumber" formControlName="MobileNumber"
+                            placeholder="Mobile Number *">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput name="State" formControlName="State" placeholder="State *">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput name="PostCode" formControlName="PostCode" placeholder="PostCode *">
+                    </mat-form-field>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end" class="pb-4">
+  <button mat-stroked-button color="default" tabindex="15" (click)="closeModal()">Cancel</button>
+  <button mat-flat-button color="primary" tabindex="14" (click)="addOrUpdateUser('Publish')">{{submitButtonValue}}</button>
+</mat-dialog-actions>
+

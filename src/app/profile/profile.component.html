@@ -1,0 +1,56 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="section-profile pt-5">           
+            <div class="section-basic-information card border-0 bg-transparent mb-3">
+                <div class="card-header bg-transparent" fxLayout="row" fxLayoutAlign="flex-start center">
+                    <h5 class="card-title m-0" fxFlex="auto">Basic Information</h5>
+                    <div>
+                        <a mat-icon-button matTooltip="Edit profile" (click)="openBasicInfoDialog()"><i
+                                class="material-icons">edit</i><span class="cdk-visually-hidden">Edit profile</span></a>
+                    </div>
+                </div>
+                <div class="card-body pl-0 pr-0">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item bg-transparent border-0" fxLayout="row" fxLayoutGap="30px"
+                            fxLayoutAlign="flex-start center">
+                            <div class="text-muted" fxFlex="30">Username</div>
+                            <div fxFlex="70">{{userViewModel.userName}}</div>
+                        </div>
+                        <div class="list-group-item bg-transparent border-0" fxLayout="row" fxLayoutGap="30px"
+                            fxLayoutAlign="flex-start center">
+                            <div class="text-muted" fxFlex="30">Email address</div>
+                            <div fxFlex="70">{{userViewModel.email}}</div>
+                        </div>
+                        <div class="list-group-item bg-transparent border-0" fxLayout="row" fxLayoutGap="30px"
+                            fxLayoutAlign="flex-start center">
+                            <div class="text-muted" fxFlex="30">Contact number</div>
+                            <div fxFlex="70">{{userViewModel.mobileNumber}}</div>
+                        </div>
+                        <div class="list-group-item bg-transparent border-0" fxLayout="row" fxLayoutGap="30px"
+                            fxLayoutAlign="flex-start center">
+                            <div class="text-muted" fxFlex="30">Suburb</div>
+                            <div fxFlex="70">{{userViewModel.suburb}}</div>
+                        </div>
+                        <div class="list-group-item bg-transparent border-0" fxLayout="row" fxLayoutGap="30px"
+                            fxLayoutAlign="flex-start center">
+                            <div class="text-muted" fxFlex="30">State</div>
+                            <div fxFlex="70">{{userViewModel.state}}</div>
+                        </div>
+                        <div class="list-group-item bg-transparent border-0" fxLayout="row" fxLayoutGap="30px"
+                            fxLayoutAlign="flex-start center">
+                            <div class="text-muted" fxFlex="30">Country</div>
+                            <div fxFlex="70">{{userViewModel.country}}</div>
+                        </div>
+                        <div class="list-group-item bg-transparent border-0" fxLayout="row" fxLayoutGap="30px"
+                            fxLayoutAlign="flex-start center">
+                            <div class="text-muted" fxFlex="30">Postal code</div>
+                            <div fxFlex="70">{{userViewModel.postCode}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                   
+        </div>      
+    </div>
+    <button mat-stroked-button color="default" tabindex="15" (click)="closeModal()">Cancel</button>
+</div>
+
