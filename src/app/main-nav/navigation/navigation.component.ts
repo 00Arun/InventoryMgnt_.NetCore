@@ -30,7 +30,7 @@ export class NavigationComponent implements OnInit {
     if (this.currentUser.roleName == "Admin") {
       this.routLink = "/adminconsole";
     } else if (this.currentUser.roleName == "Student") {
-      this.routLink = "/studenconsole";
+      this.routLink = "/studentconsole";
     }
     else {
       this.routLink = "/librarianconsole";
