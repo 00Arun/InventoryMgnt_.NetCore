@@ -6,7 +6,7 @@ export const environment = {
   production: true,
   name: 'local-dev',
   apiUrl: {
-    base: 'https://c6e67a78.ngrok.io/api/'
+    base: 'https://zesty-baklava-94f6a7.netlify.app/api/'
   }
 };
 
